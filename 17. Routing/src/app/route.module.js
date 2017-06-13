@@ -9,9 +9,11 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var users_component_1 = require("./users.component");
 var customer_comp_1 = require("./customer.comp");
+var users_detail_comp_1 = require("./users.detail.comp");
 var routes = [
     { path: 'users', component: users_component_1.UsersComponent },
-    { path: 'customer', component: customer_comp_1.CustomerComp }
+    { path: 'customer', component: customer_comp_1.CustomerComp },
+    { path: 'userDetail/:id', component: users_detail_comp_1.UsersDetailComp }
 ];
 var RouteModule = (function () {
     function RouteModule() {
@@ -25,5 +27,5 @@ RouteModule = __decorate([
     })
 ], RouteModule);
 exports.RouteModule = RouteModule;
-exports.routingComps = [users_component_1.UsersComponent, customer_comp_1.CustomerComp];
+exports.routingComps = [users_component_1.UsersComponent, customer_comp_1.CustomerComp, users_detail_comp_1.UsersDetailComp];
 //# sourceMappingURL=route.module.js.map
