@@ -6,18 +6,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require("@angular/core");
-var name_service_1 = require("./name.service");
-var AppComponent = (function () {
-    function AppComponent() {
+var NameService = (function () {
+    function NameService() {
+        //type two
+        this.obj = {};
     }
-    return AppComponent;
+    NameService.prototype.setOption = function (option, value) {
+        this.obj[option] = value;
+        console.log(this.obj);
+    };
+    NameService.prototype.getConfig = function () {
+        console.log("get" + this.obj);
+        return this.obj;
+    };
+    return NameService;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        template: "<h1>Routing Implemented</h1>\n                <div>\n                  <h2><a routerLink='/users'>Users</a>\n                  <a routerLink='/customer'>Customer</a></h2>\n\n                  <router-outlet></router-outlet>",
-        providers: [name_service_1.NameService]
-    })
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+NameService = __decorate([
+    core_1.Injectable()
+], NameService);
+exports.NameService = NameService;
+//# sourceMappingURL=name.service.js.map

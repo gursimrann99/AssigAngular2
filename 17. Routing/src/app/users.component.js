@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var name_service_1 = require("./name.service");
 var UsersComponent = (function () {
-    function UsersComponent(router) {
+    function UsersComponent(router, services) {
         this.router = router;
+        this.services = services;
         this.users = [
             { id: 1, name: "Guru", gender: "male", age: "22" },
             { id: 2, name: "Emma", gender: "female", age: "24" },
@@ -21,6 +23,11 @@ var UsersComponent = (function () {
         ];
     }
     UsersComponent.prototype.onClick = function (user) {
+        // type one
+        this.services.data = user.id;
+        //type two
+        this.services.setOption('gender', user.gender);
+        this.services.setOption('age', user.age);
         this.router.navigate(['/userDetail', user.id]);
     };
     return UsersComponent;
@@ -30,8 +37,7 @@ UsersComponent = __decorate([
         selector: 'my-usersComp',
         template: "<h3>Users Comp</h3>\n              <ul>\n                <li (click)=\"onClick(user)\" *ngFor= \"let user of users\">{{user.name}}</li>\n              </ul>",
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof router_1.Router !== "undefined" && router_1.Router) === "function" && _a || Object])
+    __metadata("design:paramtypes", [router_1.Router, name_service_1.NameService])
 ], UsersComponent);
 exports.UsersComponent = UsersComponent;
-var _a;
 //# sourceMappingURL=users.component.js.map

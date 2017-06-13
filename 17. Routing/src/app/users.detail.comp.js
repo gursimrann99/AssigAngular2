@@ -10,21 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
+var name_service_1 = require("./name.service");
 var UsersDetailComp = (function () {
-    function UsersDetailComp(route) {
+    function UsersDetailComp(route, services) {
         this.route = route;
+        this.services = services;
     }
     UsersDetailComp.prototype.ngOnInit = function () {
-        var id = this.route.snapshot.params['id'];
+        console.log("inside details" + this.services.getConfig());
+        //  this.userId = this.services.getConfig();
     };
     return UsersDetailComp;
 }());
 UsersDetailComp = __decorate([
     core_1.Component({
-        template: '',
+        template: '{{userId}}',
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof router_1.ActivateRoute !== "undefined" && router_1.ActivateRoute) === "function" && _a || Object])
+    __metadata("design:paramtypes", [router_1.ActivatedRoute, name_service_1.NameService])
 ], UsersDetailComp);
 exports.UsersDetailComp = UsersDetailComp;
-var _a;
 //# sourceMappingURL=users.detail.comp.js.map
